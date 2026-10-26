@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Formulir pemesanan laundry WashMate dengan validasi jQuery dan pengiriman AJAX.">
+    <meta name="theme-color" content="#fff4f8">
+    <title>Pesan Laundry · WashMate Laundry</title>
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/washmate.css">
+</head>
+<body>
+    <div class="sparkle" aria-hidden="true">✦　♡　✧　୨୧　✦</div>
+    <header class="topbar">
+        <a class="brand" href="index.html" aria-label="WashMate, beranda">
+            <img class="brand-logo" src="images/logo.svg" alt="" width="45" height="45">
+            <span>WashMate<small>Fresh clothes, happier days</small></span>
+        </a>
+        <button class="menu-toggle" type="button" aria-label="Buka navigasi" aria-expanded="false">☰</button>
+        <nav class="nav" aria-label="Navigasi utama">
+            <a href="index.html">Beranda</a>
+            <a href="layanan.html">Layanan &amp; Harga</a>
+            <a class="active" aria-current="page" href="pemesanan.html">Pesan Laundry</a>
+            <a href="tentang.html">Tentang Kami</a>
+        </nav>
+    </header>
+    <main id="page-content" tabindex="-1">
+<section class="page-heading"><span class="eyebrow">FORMULIR PEMESANAN</span><h1>Pesan WashMate<br><em>semudah beberapa klik.</em></h1><p>Isi data berikut dengan benar. Estimasi biaya dihitung otomatis dan setiap kolom diperiksa dulu sebelum pesanan dikirim ke server.</p></section>
+<div class="order-layout">
+<form id="order-form" class="order-form" action="api/pesanan.php" method="post" novalidate>
+    <div class="form-title"><img class="form-img" src="images/svc-cuci-setrika.svg" alt="" width="55" height="55"><div><h2>Detail pesananmu</h2><p>Kolom bertanda * wajib diisi.</p></div></div>
+    <div class="form-grid">
+        <div class="field"><label for="nama">Nama lengkap *</label><input id="nama" name="nama" autocomplete="name" placeholder="Nama kamu" maxlength="100"><small class="msg" data-for="nama"></small></div>
+        <div class="field"><label for="telepon">Nomor telepon *</label><input id="telepon" name="telepon" inputmode="tel" autocomplete="tel" placeholder="08xxxxxxxxxx" maxlength="20"><small class="msg" data-for="telepon"></small></div>
+        <div class="field full"><label for="alamat">Alamat penjemputan/pengantaran *</label><textarea id="alamat" name="alamat" rows="3" maxlength="500" placeholder="Nama jalan, nomor rumah, patokan..."></textarea><small class="msg" data-for="alamat"></small></div>
+        <div class="field"><label for="layanan">Jenis layanan *</label><select id="layanan" name="layanan"><option value="">Pilih layanan</option><option>Cuci Kering Lipat</option><option>Cuci Setrika</option><option>Setrika Saja</option><option>Cuci Ekspres</option><option>Bedcover dan Selimut</option></select><small class="msg" data-for="layanan"></small></div>
+        <div class="field"><label for="berat">Berat cucian (kg) *</label><input id="berat" name="berat" type="number" step="0.5" value="2"><small class="msg" data-for="berat"></small></div>
+        <div class="field"><label for="jadwal">Tanggal layanan *</label><input id="jadwal" name="jadwal" type="date"><small class="msg" data-for="jadwal"></small></div>
+        <div class="field"><label>Estimasi biaya</label><output id="estimate" class="estimate">Pilih layanan</output></div>
+        <div class="field full"><label for="catatan">Catatan tambahan (opsional)</label><textarea id="catatan" name="catatan" rows="2" maxlength="500" placeholder="Contoh: pakaian putih dipisahkan"></textarea><small class="msg counter" data-for="catatan"><span id="catatan-count">0</span>/500</small></div>
+    </div>
+    <p class="privacy">♡ Data digunakan untuk mencatat dan menindaklanjuti pesanan laundry.</p>
+    <button class="btn submit-btn" type="submit">Kirim pesanan ♡</button>
+    <div id="form-result" class="form-result" role="status" aria-live="polite"></div>
+</form>
+<aside class="order-aside"><img class="aside-img" src="images/hero-washmate.svg" alt="" width="140" height="140" loading="lazy"><h2>Laundry lebih praktis, hari lebih ringan.</h2><p>Lengkapi formulir, cek estimasi, lalu kirim pesananmu melalui sistem online.</p><ul><li>♡ Isi data dengan benar</li><li>♡ Periksa estimasi biaya</li><li>♡ Simpan kode pesanan</li></ul><div class="aside-note">Formulir divalidasi dengan jQuery di browser sebelum dikirim ke server lewat AJAX (HTTP POST).</div></aside>
+</div>
+    </main>
+    <footer class="footer">
+        <span>♡ WashMate Laundry</span>
+        <p>Pakaian bersih, hari lebih nyaman.</p>
+    </footer>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/washmate.js"></script>
+</body>
+</html>

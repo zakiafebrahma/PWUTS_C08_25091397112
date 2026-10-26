@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Daftar layanan laundry WashMate lengkap dengan filter kategori dan simulasi harga interaktif.">
+    <meta name="theme-color" content="#fff4f8">
+    <title>Layanan & Harga · WashMate Laundry</title>
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/washmate.css">
+</head>
+<body>
+    <div class="sparkle" aria-hidden="true">✦　♡　✧　୨୧　✦</div>
+    <header class="topbar">
+        <a class="brand" href="index.html" aria-label="WashMate, beranda">
+            <img class="brand-logo" src="images/logo.svg" alt="" width="45" height="45">
+            <span>WashMate<small>Fresh clothes, happier days</small></span>
+        </a>
+        <button class="menu-toggle" type="button" aria-label="Buka navigasi" aria-expanded="false">☰</button>
+        <nav class="nav" aria-label="Navigasi utama">
+            <a href="index.html">Beranda</a>
+            <a class="active" aria-current="page" href="layanan.html">Layanan &amp; Harga</a>
+            <a href="pemesanan.html">Pesan Laundry</a>
+            <a href="tentang.html">Tentang Kami</a>
+        </nav>
+    </header>
+    <main id="page-content" tabindex="-1">
+<section class="page-heading"><span class="eyebrow">WASHMATE SERVICE MENU</span><h1>Harga yang jelas,<br><em>perawatan yang tepat.</em></h1><p>Pilih layanan sesuai kebutuhan pakaianmu. Estimasi biaya dihitung berdasarkan berat cucian dan ditampilkan saat kamu mengisi formulir.</p></section>
+
+<div class="filter-bar" role="group" aria-label="Filter kategori layanan">
+    <span class="filter-label">Tampilkan:</span>
+    <button type="button" class="chip active" data-filter="semua">Semua</button>
+    <button type="button" class="chip" data-filter="Reguler">Reguler</button>
+    <button type="button" class="chip" data-filter="Ekspres">Ekspres</button>
+    <button type="button" class="chip" data-filter="Perawatan">Perawatan</button>
+    <button type="button" class="chip" data-filter="Khusus">Khusus</button>
+    <span class="filter-count" id="filter-count" aria-live="polite"></span>
+</div>
+<div class="cards price-cards" id="service-list">
+<article class="service-card" data-kategori="Reguler"><div class="service-illustration"><img src="images/svc-kering-lipat.svg" alt="Pakaian terlipat rapi" width="72" height="72" loading="lazy"></div><h3>Cuci Kering Lipat</h3><p>Cuci, keringkan, lalu lipat rapi untuk kebutuhan sehari-hari.</p><div class="price">Rp7.000 <small>/ kg</small></div><span class="pill">Reguler</span></article>
+<article class="service-card featured" data-kategori="Reguler"><span class="popular">Pilihan favorit ♡</span><div class="service-illustration"><img src="images/svc-cuci-setrika.svg" alt="Kaos bersih dan segar" width="72" height="72" loading="lazy"></div><h3>Cuci & Setrika</h3><p>Pakaian bersih dan rapi, siap menemani kegiatanmu.</p><div class="price">Rp9.000 <small>/ kg</small></div><span class="pill">Reguler</span></article>
+<article class="service-card" data-kategori="Ekspres"><div class="service-illustration"><img src="images/svc-ekspres.svg" alt="Ikon kilat layanan ekspres" width="72" height="72" loading="lazy"></div><h3>Cuci Ekspres</h3><p>Opsi untuk kebutuhan lebih cepat, mengikuti antrean layanan.</p><div class="price">Rp14.000 <small>/ kg</small></div><span class="pill">Ekspres</span></article>
+<article class="service-card" data-kategori="Perawatan"><div class="service-illustration"><img src="images/svc-setrika.svg" alt="Setrika" width="72" height="72" loading="lazy"></div><h3>Setrika Saja</h3><p>Untuk pakaian yang sudah dicuci dan perlu dirapikan.</p><div class="price">Rp6.000 <small>/ kg</small></div><span class="pill">Perawatan</span></article>
+<article class="service-card" data-kategori="Khusus"><div class="service-illustration"><img src="images/svc-bedcover.svg" alt="Bedcover dan selimut" width="72" height="72" loading="lazy"></div><h3>Bedcover & Selimut</h3><p>Perawatan kain besar agar lebih segar dan nyaman digunakan.</p><div class="price">Rp12.000 <small>/ kg</small></div><span class="pill">Khusus</span></article>
+<article class="service-card service-help" data-kategori="bantuan"><div class="service-illustration">♡</div><h3>Belum yakin pilih yang mana?</h3><p>Pilih layanan di formulir pemesanan. Estimasi akan muncul otomatis sesuai jenis layanan dan berat.</p><a class="btn" href="pemesanan.html">Bantu saya memilih ↗</a></article>
+</div>
+
+<section class="simulator" id="simulator" aria-labelledby="sim-title">
+    <div class="sim-head"><span class="eyebrow">SIMULASI HARGA</span><h2 id="sim-title">Hitung biaya laundry-mu</h2><p>Geser berat cucian dan pilih layanan. Total dan estimasi selesai berubah langsung tanpa memuat ulang halaman.</p></div>
+    <div class="sim-grid">
+        <form class="sim-controls" onsubmit="return false">
+            <div class="field"><label for="sim-layanan">Jenis layanan</label>
+                <select id="sim-layanan">
+                    <option value="Cuci Kering Lipat" data-harga="7000" data-hari="2">Cuci Kering Lipat — Rp7.000/kg</option>
+                    <option value="Cuci Setrika" data-harga="9000" data-hari="3" selected>Cuci Setrika — Rp9.000/kg</option>
+                    <option value="Setrika Saja" data-harga="6000" data-hari="1">Setrika Saja — Rp6.000/kg</option>
+                    <option value="Cuci Ekspres" data-harga="14000" data-hari="1">Cuci Ekspres — Rp14.000/kg</option>
+                    <option value="Bedcover dan Selimut" data-harga="12000" data-hari="4">Bedcover dan Selimut — Rp12.000/kg</option>
+                </select></div>
+            <div class="field"><label for="sim-berat">Berat cucian: <b id="sim-berat-val">3</b> kg</label>
+                <input type="range" id="sim-berat" min="1" max="30" step="1" value="3"></div>
+            <label class="check"><input type="checkbox" id="sim-antar" data-biaya="5000"> <span>Antar-jemput <small>+ Rp5.000</small></span></label>
+            <label class="check"><input type="checkbox" id="sim-parfum" data-biaya="1000"> <span>Parfum premium <small>+ Rp1.000/kg</small></span></label>
+            <button type="button" class="btn btn-light" id="sim-reset">Atur ulang</button>
+        </form>
+        <div class="sim-result" aria-live="polite">
+            <img class="sim-img" id="sim-img" src="images/svc-cuci-setrika.svg" alt="" width="84" height="84">
+            <div class="sim-total-label">Estimasi total</div>
+            <div class="sim-total" id="sim-total">Rp27.000</div>
+            <ul class="sim-detail" id="sim-detail"></ul>
+            <p class="sim-eta" id="sim-eta"></p>
+            <a class="btn" id="sim-order" href="pemesanan.html">Pesan dengan pilihan ini ♡</a>
+        </div>
+    </div>
+</section>
+<section class="notice"><b>Catatan harga</b><p>Harga di website ini merupakan harga simulasi untuk kebutuhan praktikum. Estimasi bukan tagihan final dan dapat dikonfirmasi oleh pengelola layanan.</p><a class="btn" href="pemesanan.html">Pesan laundry sekarang ♡</a></section>
+    </main>
+    <footer class="footer">
+        <span>♡ WashMate Laundry</span>
+        <p>Pakaian bersih, hari lebih nyaman.</p>
+    </footer>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/washmate.js"></script>
+</body>
+</html>
